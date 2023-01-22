@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // styles
 import "./styles/global.scss";
@@ -8,13 +8,13 @@ import "./styles/global.scss";
 import Layout from "./containers/Layout";
 import Login from "./containers/Login";
 import RecoveryPassword from "./containers/RecoveryPassword";
-import Home from "./containers/Home";
-import NotFound from "./containers/NotFound";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
     <Router>
-      <Switch>
+      <Routes>
         <Layout>
           {/* Home */}
           <Route exact path="/">
@@ -28,11 +28,11 @@ const App = () => {
             <Login />
           </Route>
           {/* Default */}
-          <Route>
+          <Route path="*">
             <NotFound />
           </Route>
         </Layout>
-      </Switch>
+      </Routes>
     </Router>
   );
 };
